@@ -1,10 +1,13 @@
-mongoose = require 'mongoose'
-
 # Post model
-Post = new mongoose.Schema(
-  title: String
-  body: String
-  url: String
-)
 
-module.exports = mongoose.model 'Post', Post
+module.exports = class Post extends require '../lib/model/pg_model'
+	table = "posts"
+
+	tableDef:
+		name: table
+		columns: ['id','body','title', 'author_id']
+
+	insert: (data) ->
+		unless Array.isArray data then data = [data]
+		q = @query.insert(data).toQuery()
+		@getDb().query q

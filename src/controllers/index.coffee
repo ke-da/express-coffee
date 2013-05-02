@@ -1,4 +1,5 @@
 # Just renders index.jade
 
-exports.index = (req, res) ->
-    res.render 'index'
+exports.index = (param) ->
+	{req,res} = param
+	res.render 'index', name: "keda"
