@@ -10,9 +10,10 @@ exports.setEnvironment = (env) ->
 			exports.DEBUG_CLIENT = true
 
 			exports.db =
-				host: 'localhost'
+				host: '10.5.1.125'
 				user: 'postgres'
-				database: "app"
+				password: 'postgres'
+				database: "blog"
 
 		when "testing"
 			exports.DEBUG_LOG = true

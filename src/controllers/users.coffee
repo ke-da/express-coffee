@@ -14,4 +14,4 @@ module.exports =
 			.findAll().on('row', (row) ->
 				data.push row
 			).on 'end', ->
-				res.send data
+				res.send data or 'no data'

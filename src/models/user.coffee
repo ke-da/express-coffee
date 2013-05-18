@@ -1,7 +1,7 @@
 # User model
 
 module.exports = class Users extends require '../lib/model/pg_model'
-	table = "users"
+	table = "authors"
 
 	tableDef:
 		name: table
