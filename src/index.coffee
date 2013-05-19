@@ -14,10 +14,6 @@ config = require "./config"
 app.configure 'production', 'development', 'testing', ->
   config.setEnvironment app.settings.env
 
-## Use postgres SQL db client
-app.db = new (require 'pg').native.Client config.db
-app.db.connect()
-
 #### View initialization 
 # Add Connect Assets.
 app.use assets()
@@ -28,7 +24,8 @@ app.use express.static(process.cwd() + '/public')
 # Set View Engine.
 app.set 'view engine', 'jade'
 
-# [Body parser middleware](http://www.senchalabs.org/connect/middleware-bodyParser.html) parses JSON or XML bodies into `req.body` object
+# [Body parser middleware](http://www.senchalabs.org/connect/middleware-bodyParser.html)
+# parses JSON or XML bodies into `req.body` object
 app.use express.bodyParser()
 
 
