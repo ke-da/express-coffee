@@ -7,7 +7,7 @@ assets = require 'connect-assets'
 app = express()
 
 # Define Port
-app.port = process.env.PORT or process.env.VMC_APP_PORT or 3000
+app.port = process.env.PORT or process.env.VMC_APP_PORT or 8000
 
 # Config module exports has `setEnvironment` function that sets app settings depending on environment.
 config = require "./config"
